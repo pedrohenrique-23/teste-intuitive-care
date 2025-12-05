@@ -14,3 +14,16 @@ Este projeto resolve as etapas de **Web Scraping** e **Transformação de Dados*
 1. **Instale as dependências:**
    ```bash
    pip install -r requirements.txt
+
+2. **Execute o script principal:**
+   ```bash
+    python main.py
+
+3. **Resultado:**
+Verifique a pasta ./data. O arquivo final será Teste_Pedro_Silva.zip.
+
+🧰 Tecnologias
+- Python 3.x
+- Pandas (Manipulação de dados)
+- Pdfplumber (Extração de tabelas em PDF)
+- BeautifulSoup4 (Web Scraping)

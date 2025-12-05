@@ -13,16 +13,16 @@ def main():
     transformer = PdfTransformer(data_dir="./data")
     
     try:
-        # 1. Acha o arquivo PDF baixado na etapa anterior
+        # 1. Acha o arquivo PDF baixado
         pdf_path = transformer.find_anexo_i()
         
-        # 2. Extrai a tabela (Isso é o mais demorado)
+        # 2. Extrai a tabela
         raw_data = transformer.extract_table(pdf_path)
         
-        # 3. Transforma (Limpa e substitui siglas)
+        # 3. Transforma
         df = transformer.transform_data(raw_data)
         
-        # 4. Salva (Gera o ZIP final)
+        # 4. Salva ZIP
         transformer.save_csv_zip(df, filename="Teste_Pedro_Silva.zip")
         
         print("=== PROCESSO COMPLETO FINALIZADO COM SUCESSO! ===")

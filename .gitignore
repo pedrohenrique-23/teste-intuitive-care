@@ -1,14 +1,8 @@
-# Ignorar ambiente virtual
 venv/
-
-# Ignorar arquivos compilados do Python
 __pycache__/
-
-# Ignorar arquivos de dados baixados e gerados (mantemos o repo limpo)
 data/
-*.pdf
+raw_data/
 *.zip
+*.pdf
 *.csv
-
-# Ignorar configurações de sistema
 .DS_Store

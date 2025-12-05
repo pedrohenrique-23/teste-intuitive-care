@@ -28,7 +28,6 @@ class PdfTransformer:
             print(f"Total de páginas encontradas: {total_pages}")
             
             for i, page in enumerate(pdf.pages):
-                # Feedback visual simples
                 if (i + 1) % 50 == 0:
                     print(f"Processando página {i + 1}/{total_pages}...")
 
@@ -40,7 +39,6 @@ class PdfTransformer:
                         all_data.extend(table)
                     else:
                         # Verifica se a nova tabela tem o mesmo cabeçalho da primeira
-                        # Isso evita repetir o cabeçalho no meio do CSV
                         if table[0] == all_data[0]:
                             all_data.extend(table[1:])
                         else:
@@ -55,14 +53,12 @@ class PdfTransformer:
 
         print("Transformando dados...")
         
-        # O primeiro item da lista é o cabeçalho
         columns = raw_data[0]
         data = raw_data[1:]
         
         df = pd.DataFrame(data, columns=columns)
         
         # Substituição das Siglas (OD e AMB)
-        # Usamos regex=True para garantir que substitua mesmo se tiver espaço
         if 'OD' in df.columns:
             df['OD'] = df['OD'].replace({'OD': 'Seg. Odontológica'})
         

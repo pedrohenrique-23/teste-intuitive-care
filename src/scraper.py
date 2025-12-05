@@ -17,7 +17,7 @@ class AnsScraper:
         """Acessa o site e busca os links dos Anexos I e II."""
         print(f"Acessando {self.url}...")
         try:
-            # User-Agent para evitar ser bloqueado (boa prática de scraping)
+            # User-Agent para evitar ser bloqueado
             headers = {
                 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
             }
@@ -35,7 +35,7 @@ class AnsScraper:
             href = tag['href']
             text = tag.get_text().upper()
             
-            # Filtra Anexo I e Anexo II (ignora outros)
+            # Filtra Anexo I e Anexo II
             if "ANEXO" in text and href.lower().endswith('.pdf'):
                 if "ANEXO I" in text or "ANEXO II" in text:
                     links_found.append(href)
