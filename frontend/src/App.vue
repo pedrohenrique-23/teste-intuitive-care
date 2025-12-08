@@ -1,23 +1,19 @@
 <script setup>
 import { ref } from 'vue'
 
-// Variáveis reativas (Estado)
 const searchTerm = ref('')
 const operadoras = ref([])
 const loading = ref(false)
 const error = ref('')
 const hasSearched = ref(false)
 
-// Função que busca na API Python
 const buscarOperadoras = async () => {
-  // Limpa estados anteriores
   loading.value = true
   error.value = ''
   operadoras.value = []
   hasSearched.value = true
 
   try {
-    // Bate na sua API Python (que deve estar rodando na porta 5000)
     const response = await fetch(`http://localhost:5000/operadoras?q=${searchTerm.value}`)
     
     if (!response.ok) throw new Error('Erro ao conectar com o servidor')
@@ -83,7 +79,6 @@ const buscarOperadoras = async () => {
 </template>
 
 <style scoped>
-/* Estilização Limpa e Profissional */
 .container {
   max-width: 900px;
   margin: 0 auto;
@@ -118,7 +113,7 @@ input:focus { border-color: #42b983; }
 
 button {
   padding: 12px 24px;
-  background-color: #42b983; /* Verde Vue */
+  background-color: #42b983; 
   color: white;
   border: none;
   border-radius: 4px;
